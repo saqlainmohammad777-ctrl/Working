@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reliable Luxury Pens</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:'Roboto', sans-serif; background:#0b0f3d; color:#ddd; overflow-x:hidden; }
+
+/* Header */
+header { background:#111; padding:20px 50px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
+header h1 { font-family:'Merriweather', serif; font-size:30px; font-style:italic; color:#C0C0C0; text-shadow:2px 2px 8px #000; }
+nav a { margin-left:30px; color:#fff; font-weight:500; transition:0.3s; font-family:'Merriweather', serif; }
+nav a:hover { color:#FFD700; }
+
+/* Hero */
+.hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; overflow:hidden; background: radial-gradient(circle at center, #0b0f3d 0%, #111 100%); }
+#sparkleCanvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.hero h2 { font-family:'Merriweather', serif; font-size:52px; font-style:italic; margin-bottom:20px; color:#C0C0C0; text-shadow:2px 2px 10px #000; opacity:0; transform: translateY(50px); transition:1s; background: linear-gradient(90deg,#C0C0C0,#E0E0E0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; z-index:1; position:relative; }
+.hero p { font-family:'Roboto', sans-serif; font-size:18px; max-width:700px; margin-bottom:30px; color:#ddd; text-shadow:1px 1px 5px #000; opacity:0; transform: translateY(50px); transition:1s; z-index:1; position:relative; }
+.hero button { padding:15px 30px; font-family:'Merriweather', serif; font-weight:700; font-style:italic; font-size:18px; background: linear-gradient(45deg, #C0C0C0, #E0E0E0); color:#111; border:none; border-radius:5px; cursor:pointer; transition:0.4s; opacity:0; transform: translateY(50px); z-index:1; position:relative; }
+.hero button:hover { transform:scale(1.1); box-shadow:0 0 35px #FFD700, 0 0 60px #FFD700 inset; animation: sparkle 1s infinite; }
+@keyframes sparkle { 0%,100%{box-shadow:0 0 35px #FFD700,0 0 60px #FFD700 inset;} 50%{box-shadow:0 0 50px #FFD700,0 0 80px #FFD700 inset;} }
+
+/* Sections */
+.section { padding:80px 50px; text-align:center; position:relative; background-attachment: fixed; background-size: cover; background-position: center; opacity:0; transform: translateY(50px); transition:1s; }
+.section h2 { font-family:'Merriweather', serif; font-size:38px; font-style:italic; background: linear-gradient(90deg, #C0C0C0, #E0E0E0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:50px; text-shadow:1px 1px 5px #000; transition:0.8s; }
+
+/* Section backgrounds */
+#fountain { background-image: linear-gradient(120deg, #0b0f3d, #111); }
+#rollerball { background-image: linear-gradient(120deg, #111, #1a1a2e); }
+#premium { background-image: linear-gradient(120deg, #1a1a2e, #0b0f3d); }
+
+/* Cards */
+.cards { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; }
+.card {
+    background: #111;
+    border-radius:20px;
+    width:250px;
+    padding:50px 20px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.7);
+    transition:0.5s; opacity:0; transform: translateY(50px);
+}
+.card::before {
+  content:""; position:absolute; top:0; left:-75%; width:50%; height:100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+}
+.card:hover::before { animation: slide 2s forwards; }
+@keyframes slide { 0% { left:-75%; } 100% { left:125%; } }
+.card:hover { box-shadow:0 0 40px #FFD700, 0 0 60px #FFD700 inset; transform: translateY(-10px) scale(1.08); }
+.card h3 { font-family:'Merriweather', serif; font-size:22px; font-style:italic; color:#C0C0C0; text-shadow:1px 1px 3px #000; margin-bottom:15px; text-align:center; }
+.card p { font-family:'Roboto', sans-serif; color:#ddd; font-size:16px; text-align:center; margin-bottom:15px; }
+.card button { font-family:'Merriweather', serif; font-weight:700; font-style:italic; padding:10px 20px; font-size:16px; background: linear-gradient(45deg, #C0C0C0, #E0E0E0); color:#111; border:none; border-radius:5px; cursor:pointer; transition:0.4s; }
+.card button:hover { box-shadow:0 0 25px #FFD700,0 0 50px #FFD700 inset; transform:scale(1.12); animation: sparkle 1s infinite; }
+
+/* About */
+.about { background: linear-gradient(120deg, #0b0f3d, #111); }
+.about p { font-family:'Roboto', sans-serif; color:#ddd; font-size:18px; max-width:800px; margin:0 auto; line-height:1.8; }
+
+/* Contact */
+.contact { background: linear-gradient(120deg, #111, #1a1a2e); }
+.contact p { font-family:'Roboto', sans-serif; font-size:18px; color:#ddd; margin-bottom:10px; }
+
+/* Footer */
+footer { background:#000; color:#ccc; text-align:center; padding:30px 50px; font-size:16px; }
+footer span { color:#C0C0C0; font-weight:bold; }
+
+/* Back to top button */
+#topBtn { display:none; position: fixed; bottom: 40px; right: 40px; z-index: 100; font-size:18px; border:none; outline:none; background: #C0C0C0; color: #111; cursor:pointer; padding:15px 20px; border-radius: 50px; transition:0.3s; }
+#topBtn:hover { background:#FFD700; transform: scale(1.1); }
+
+/* Modal */
+#modalOverlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:2000; justify-content:center; align-items:center; }
+#modalContent { background:#111; padding:40px; border-radius:20px; text-align:center; max-width:400px; width:90%; position:relative; }
+#modalContent h2 { font-family:'Merriweather', serif; color:#C0C0C0; margin-bottom:20px; font-style:italic; }
+#modalContent p { font-family:'Roboto', sans-serif; color:#ddd; margin-bottom:15px; }
+#modalContent input { width:60px; padding:5px; border-radius:5px; border:none; text-align:center; margin-bottom:20px; }
+
+/* Cart Panel */
+#cartPanel {
+    position:fixed;
+    top:120px;
+    right:20px;
+    width:220px;
+    max-height:60vh;
+    overflow-y:auto;
+    background:rgba(17,17,17,0.9);
+    border:2px solid #FFD700;
+    border-radius:15px;
+    padding:15px;
+    z-index:3000;
+}
+#cartPanel h3 { font-family:'Merriweather', serif; font-size:20px; font-style:italic; color:#C0C0C0; margin-bottom:10px; text-align:center; }
+#cartPanel ul { list-style:none; padding-left:0; }
+#cartPanel li { margin-bottom:8px; font-family:'Roboto', sans-serif; color:#ddd; font-size:16px; display:flex; justify-content:space-between; align-items:center; }
+#cartPanel li button { padding:2px 6px; font-size:12px; border:none; border-radius:3px; cursor:pointer; background:#C0C0C0; color:#111; transition:0.3s; }
+#cartPanel li button:hover { background:#FFD700; }
+
+/* Responsive */
+@media(max-width:900px){ .cards { flex-direction:column; align-items:center; } header { flex-direction:column; } nav { margin-top:10px; } #cartPanel{top:100px; right:10px; width:180px;} }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Reliable Luxury Pens</h1>
+<nav>
+    <a href="#fountain">Fountain Pens</a>
+    <a href="#rollerball">Rollerball Pens</a>
+    <a href="#premium">Premium Pens</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+    <canvas id="sparkleCanvas"></canvas>
+    <h2>Write with Elegance</h2>
+    <p>Discover our luxury pens crafted for perfection, blending style, sophistication, and unmatched quality.</p>
+    <button class="hero-scroll">Explore Pens</button>
+</section>
+
+<section class="section" id="fountain">
+<h2>Fountain Pens</h2>
+<div class="cards">
+    <div class="card"><h3>Golden Elegance</h3><p>Premium black & gold fountain pen for a refined writing experience.</p><button>Buy Now</button></div>
+    <div class="card"><h3>Royal Gold</h3><p>Luxurious gold-plated pen perfect for signing important documents.</p><button>Buy Now</button></div>
+    <div class="card"><h3>Classic White</h3><p>Elegant white fountain pen with smooth ink flow.</p><button>Buy Now</button></div>
+</div>
+</section>
+
+<section class="section" id="rollerball">
+<h2>Rollerball Pens</h2>
+<div class="cards">
+    <div class="card"><h3>Classic Black</h3><p>Sleek matte black rollerball pen with exquisite design details.</p><button>Buy Now</button></div>
+    <div class="card"><h3>Silver Shine</h3><p>Polished silver rollerball pen for daily use and style.</p><button>Buy Now</button></div>
+    <div class="card"><h3>Midnight Blue</h3><p>Deep blue rollerball pen with premium finish.</p><button>Buy Now</button></div>
+</div>
+</section>
+
+<section class="section" id="premium">
+<h2>Premium Pens</h2>
+<div class="cards">
+    <div class="card"><h3>Diamond Edition</h3><p>High-end luxury pen with diamond-inspired design.</p><button>Buy Now</button></div>
+    <div class="card"><h3>Platinum Master</h3><p>Exclusive platinum-plated pen for collectors.</p><button>Buy Now</button></div>
+    <div class="card"><h3>Elite Prestige</h3><p>Top-tier pen with premium ergonomic design.</p><button>Buy Now</button></div>
+</div>
+</section>
+
+<section class="section about" id="about">
+<h2>About Us</h2>
+<p>Reliable Luxury Pens are crafted with precision, elegance, and passion. Every pen combines timeless design with superior materials to provide an unparalleled writing experience for enthusiasts and professionals alike.</p>
+</section>
+
+<section class="section contact" id="contact">
+<h2>Contact Us</h2>
+<p>Phone: <span>8707700628</span></p>
+<p>Email: <span>info@reliableluxurypens.com</span></p>
+</section>
+
+<footer>
+Founder: <span>Mohammad Saqlain</span>
+</footer>
+
+<button id="topBtn" title="Go to top">↑ Top</button>
+
+<!-- Modal -->
+<div id="modalOverlay">
+  <div id="modalContent">
+    <h2 id="modalTitle">Product Name</h2>
+    <p>Select quantity:</p>
+    <input id="quantityInput" type="number" value="1" min="1">
+    <div>
+      <button id="confirmBtn">Add to Cart</button>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Panel -->
+<div id="cartPanel">
+<h3>Cart</h3>
+<ul id="cartItems"></ul>
+</div>
+<script>
+// Top button
+const topBtn = document.getElementById("topBtn");
+window.onscroll = function() {
+    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) topBtn.style.display="block";
+    else topBtn.style.display="none";
+};
+topBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+
+// Scroll animation
+const faders = document.querySelectorAll('.section, .card, .hero h2, .hero p, .hero button');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.opacity='1';
+            entry.target.style.transform='translateY(0)';
+        } else {
+            entry.target.style.opacity='0';
+            entry.target.style.transform='translateY(50px)';
+        }
+    });
+}, { threshold:0.2 });
+faders.forEach(fader => observer.observe(fader));
+
+// Hero scroll
+document.querySelector('.hero-scroll').addEventListener('click',()=>{document.getElementById('fountain').scrollIntoView({behavior:'smooth'});});
+
+// Modal and cart
+let cart = [];
+const modal=document.getElementById('modalOverlay');
+const modalTitle=document.getElementById('modalTitle');
+const quantityInput=document.getElementById('quantityInput');
+const closeModal=document.getElementById('closeModal');
+const confirmBtn=document.getElementById('confirmBtn');
+const cartItems=document.getElementById('cartItems');
+
+document.querySelectorAll('.card button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        let productName=btn.closest('.card').querySelector('h3').innerText;
+        modalTitle.innerText=productName;
+        quantityInput.value=1;
+        modal.style.display='flex';
+    });
+});
+
+closeModal.addEventListener('click',()=>{modal.style.display='none'; quantityInput.value=1;});
+
+confirmBtn.addEventListener('click',()=>{
+    let qty = parseInt(quantityInput.value);
+    if(qty < 1) { alert("Quantity must be at least 1"); return; }
+    let productName = modalTitle.innerText;
+    let existing = cart.find(item => item.name === productName);
+    if(existing) {
+        existing.qty += qty;
+    } else {
+        cart.push({name:productName, qty:qty});
+    }
+    updateCart();
+    modal.style.display='none';
+    quantityInput.value=1;
+});
+
+function updateCart(){
+    cartItems.innerHTML='';
+    cart.forEach((item,index)=>{
+        let li=document.createElement('li');
+        li.innerHTML=`${item.qty} x ${item.name} <button data-index="${index}">Remove</button>`;
+        cartItems.appendChild(li);
+    });
+    // Remove button
+    cartItems.querySelectorAll('button').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            let idx = parseInt(btn.getAttribute('data-index'));
+            cart.splice(idx,1);
+            updateCart();
+        });
+    });
+}
+
+// Sparkle Canvas
+const canvas = document.getElementById('sparkleCanvas');
+const ctx = canvas.getContext('2d');
+let particlesArray;
+
+function initCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particlesArray = [];
+    const numberOfParticles = 80;
+    for(let i=0; i<numberOfParticles; i++){
+        particlesArray.push({
+            x: Math.random()*canvas.width,
+            y: Math.random()*canvas.height,
+            radius: Math.random()*2+1,
+            speedX: (Math.random()-0.5)*0.5,
+            speedY: (Math.random()-0.5)*0.5,
+            alpha: Math.random()
+        });
+    }
+}
+function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+        ctx.fillStyle = `rgba(255,215,0,${p.alpha})`;
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if(p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+        p.alpha += (Math.random()-0.5)*0.02;
+        if(p.alpha<0) p.alpha=0;
+        if(p.alpha>1) p.alpha=1;
+    });
+    requestAnimationFrame(animateParticles);
+}
+window.addEventListener('resize', initCanvas);
+initCanvas();
+animateParticles();
+</script>
+</body>
+</html>
